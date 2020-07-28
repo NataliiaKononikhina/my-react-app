@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <title>My React App</title>
+    </header>
+    <body>
+        <div id="root">Hi Nata</div>
+        <script src="17037ec637b4354f76be8aa7a66cd97d" data-parcel-key="193eab97e8270be8d539f4ecd358d353">
+        </script>
+    </body>
+</html> 

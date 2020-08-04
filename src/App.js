@@ -2,6 +2,8 @@ import React from 'react';
 
 import { AuthorCard } from './AuthorCard';
 import { BookCard } from './BookCard';
+import { PageHeader } from './PageHeader';
+import { PageFooter } from './PageFooter';
 
 const book = {
     name: 'The Trial',
@@ -25,10 +27,14 @@ const book = {
 export class App extends React.Component {
     render() {
         return (
-            <div style={styles.appWrapper}>
-                <BookCard book={book} />
-                <AuthorCard author={book.author} />
-            </div>
+            <>
+                <PageHeader />
+                <main style={styles.appWrapper}>
+                    <BookCard book={book} />
+                    <AuthorCard author={book.author} />
+                </main>
+                <PageFooter />
+            </>
         );
     }
 }

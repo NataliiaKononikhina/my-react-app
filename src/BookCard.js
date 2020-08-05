@@ -13,6 +13,9 @@ export class BookCard extends React.Component {
                 <div>Language: {book.language}</div>
                 <div>MinPrice: {book.minPrice}</div>
                 <div>Price: {book.price}</div>
+                {book.subscribers > 10 &&
+                    <div style={styles.bestSeller}>Best-seller!</div>
+                }
             </div>
         )
     }
@@ -27,5 +30,8 @@ const styles = {
     },
     img: {
         width: "100%",
+    },
+    bestSeller: {
+        color: 'red',
     }
 }

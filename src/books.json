@@ -45,5 +45,6 @@
     "minPrice": 20,
     "price": 50,
     "sum": 40,
-    "expectedSum": 100
+    "expectedSum": 100,
+    "subscribers": 20
 }

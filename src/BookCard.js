@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { SubscriptionModal } from './SubscriptionModal';
+
 export class BookCard extends React.Component {
     render() {
         const { book } = this.props;
@@ -16,6 +18,7 @@ export class BookCard extends React.Component {
                 {book.subscribers > 10 &&
                     <div style={styles.bestSeller}>Best-seller!</div>
                 }
+                <SubscriptionModal />
             </div>
         )
     }

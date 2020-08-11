@@ -2,6 +2,7 @@ import React from 'react';
 
 import { SubscriptionModal } from './SubscriptionModal';
 import { Card } from './Card';
+import { CardData } from './CardData';
 
 export class BookCard extends React.Component {
     render() {
@@ -9,10 +10,10 @@ export class BookCard extends React.Component {
 
         return (
             <Card img={book.bookCover} name={book.name} description={book.description} >
-                <div>Pages: {book.pages}</div>
-                <div>Language: {book.language}</div>
-                <div>MinPrice: {book.minPrice}</div>
-                <div>Price: {book.price}</div>
+                <CardData name="Pages" data={book.pages} />
+                <CardData name="Language" data={book.language} />
+                <CardData name="MinPrice" data={book.minPrice} />
+                <CardData name="Price" data={book.price} />
                 {book.subscribers > 10 &&
                     <div style={styles.bestSeller}>Best-seller!</div>
                 }

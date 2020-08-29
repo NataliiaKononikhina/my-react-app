@@ -1,23 +1,17 @@
 import React from 'react';
 import AuthContext from './AuthContext';
 
-export class UserInfo extends React.Component {
-    render() {
-        return (
-            <AuthContext.Consumer>
-                {
-                    user => (
-                        <div style={styles.user}>
-                            <span style={styles.name}>{user.firstName} {user.lastName}</span>
-                            <img src={user.avatarUrl} style={styles.avatar}/>
-                        </div>
+export const UserInfo = () => (
+    <AuthContext.Consumer>
+        {user => (
+            <div style={styles.user}>
+                <span style={styles.name}>{user.firstName} {user.lastName}</span>
+                <img src={user.avatarUrl} style={styles.avatar}/>
+            </div>
 
-                    )
-                }
-            </AuthContext.Consumer>
-        )
-    }
-}
+        )}
+    </AuthContext.Consumer>
+)
 
 const styles = {
     avatar: {

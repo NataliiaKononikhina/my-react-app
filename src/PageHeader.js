@@ -2,16 +2,12 @@ import React from 'react';
 
 import { UserInfo } from './UserInfo';
 
-export class PageHeader extends React.Component {
-    render() {
-        return (
-            <header style={styles.header}>
-                <div style={styles.logo}>Books</div>
-                <UserInfo />
-            </header>
-        )
-    }
-}
+export const PageHeader = () => (
+    <header style={styles.header}>
+        <div style={styles.logo}>Books</div>
+        <UserInfo />
+    </header>
+)
 
 const styles = {
     header: {

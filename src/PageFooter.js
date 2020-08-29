@@ -1,14 +1,10 @@
 import React from 'react';
 
-export class PageFooter extends React.Component {
-    render() {
-        return (
-            <footer style={styles.footer}>
-                &copy; {new Date().getFullYear()}, Thinknetica
-            </footer>
-        )
-    }
-};
+export const PageFooter = () => (
+    <footer style={styles.footer}>
+        &copy; {new Date().getFullYear()}, Thinknetica
+    </footer>
+)
 
 const styles = {
     footer: {

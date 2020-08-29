@@ -1,39 +1,29 @@
 import React from 'react';
 
 import { SubscriptionModal } from './SubscriptionModal';
+import { Card } from './Card';
+import { CardData } from './CardData';
 
 export class BookCard extends React.Component {
     render() {
         const { book } = this.props;
 
         return (
-            <div style={styles.cardWrapper}>
-                <img src={book.bookCover} alt={book.name} style={styles.img} />
-                <h1>{book.name}</h1>
-                <p>{book.description}</p>
-                <div>Pages: {book.pages}</div>
-                <div>Language: {book.language}</div>
-                <div>MinPrice: {book.minPrice}</div>
-                <div>Price: {book.price}</div>
+            <Card img={book.bookCover} name={book.name} description={book.description} >
+                <CardData name="Pages" data={book.pages} />
+                <CardData name="Language" data={book.language} />
+                <CardData name="MinPrice" data={book.minPrice} />
+                <CardData name="Price" data={book.price} />
                 {book.subscribers > 10 &&
                     <div style={styles.bestSeller}>Best-seller!</div>
                 }
                 <SubscriptionModal />
-            </div>
+            </Card>
         )
     }
 }
 
 const styles = {
-    cardWrapper: {
-        width: "250px",
-        padding: "15px",
-        margin: "20px",
-        backgroundColor: "#f3f3f3",
-    },
-    img: {
-        width: "100%",
-    },
     bestSeller: {
         color: 'red',
     }

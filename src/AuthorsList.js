@@ -17,6 +17,8 @@ export class AuthorsList extends React.Component {
         const { showAllAuthors } = this.state;
         const { authors } = this.props;
 
+        const authorList = showAllAuthors ? authors : authors.slice(0, 3);
+
         return (
             <>
             {authors.length > 3 &&
@@ -28,9 +30,8 @@ export class AuthorsList extends React.Component {
                 </button>
             }
             <div style={styles.listWrapper}>
-                {authors
-                .filter((_, index) => index < 3 || showAllAuthors)
-                .map((author, index) => (
+                {authorList
+                .map((author) => (
                     <AuthorCard author={author} key={author.id} />
                 ))}
             </div>

@@ -4,24 +4,18 @@ import { SubscriptionModal } from './SubscriptionModal';
 import { Card } from './Card';
 import { CardData } from './CardData';
 
-export class BookCard extends React.Component {
-    render() {
-        const { book } = this.props;
-
-        return (
-            <Card img={book.bookCover} name={book.name} description={book.description} >
-                <CardData name="Pages" data={book.pages} />
-                <CardData name="Language" data={book.language} />
-                <CardData name="MinPrice" data={book.minPrice} />
-                <CardData name="Price" data={book.price} />
-                {book.subscribers > 10 &&
-                    <div style={styles.bestSeller}>Best-seller!</div>
-                }
-                <SubscriptionModal />
-            </Card>
-        )
-    }
-}
+export const BookCard = React.memo(({ book, removeHandler }) => (
+    <Card img={book.bookCover} name={book.name} description={book.description} removeHandler={removeHandler} >
+        <CardData name="Pages">{book.pages}</CardData>
+        <CardData name="Language">{book.language}</CardData>
+        <CardData name="MinPrice">{book.minPrice}</CardData>
+        <CardData name="Price">{book.price}</CardData>
+        {book.subscribers > 10 &&
+            <div style={styles.bestSeller}>Best-seller!</div>
+        }
+        <SubscriptionModal />
+    </Card>
+))
 
 const styles = {
     bestSeller: {

@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { AuthorCard } from './AuthorCard';
+import { ListWrapper } from './ListWrapper';
 
 export class AuthorsList extends React.Component {
     constructor(props) {
@@ -18,31 +19,23 @@ export class AuthorsList extends React.Component {
         const { authors } = this.props;
 
         const authorList = showAllAuthors ? authors : authors.slice(0, 3);
+        const buttonText = showAllAuthors
+            ? 'Show 3 authors'
+            : `Show ${authors.length} all authors`;
 
         return (
             <>
-            {authors.length > 3 &&
-                <button onClick={this.toggleShowAllAuthors}>
-                    {showAllAuthors
-                        ? 'Show 3 authors'
-                        : `Show ${authors.length} all authors`
-                    }
-                </button>
-            }
-            <div style={styles.listWrapper}>
-                {authorList
-                .map((author) => (
-                    <AuthorCard author={author} key={author.id} />
-                ))}
-            </div>
+                {authors.length > 3 &&
+                    <button onClick={this.toggleShowAllAuthors}>
+                        {buttonText}
+                    </button>
+                }
+                <ListWrapper>
+                    {authorList.map((author) => (
+                        <AuthorCard author={author} key={author.id} />
+                    ))}
+                </ListWrapper>
             </>
         )
-    }
-}
-
-const styles = {
-    listWrapper: {
-        display: "flex",
-        flexWrap: "wrap",
     }
 }

@@ -4,8 +4,8 @@ import { SubscriptionModal } from './SubscriptionModal';
 import { Card } from './Card';
 import { CardData } from './CardData';
 
-export const BookCard = ({ book }) => (
-    <Card img={book.bookCover} name={book.name} description={book.description} >
+export const BookCard = React.memo(({ book, removeHandler }) => (
+    <Card img={book.bookCover} name={book.name} description={book.description} removeHandler={removeHandler} >
         <CardData name="Pages">{book.pages}</CardData>
         <CardData name="Language">{book.language}</CardData>
         <CardData name="MinPrice">{book.minPrice}</CardData>
@@ -15,7 +15,7 @@ export const BookCard = ({ book }) => (
         }
         <SubscriptionModal />
     </Card>
-)
+))
 
 const styles = {
     bestSeller: {

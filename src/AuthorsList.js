@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { AuthorCard } from './AuthorCard';
+import { ListWrapper } from './ListWrapper';
 
 export class AuthorsList extends React.Component {
     constructor(props) {
@@ -29,19 +30,12 @@ export class AuthorsList extends React.Component {
                         {buttonText}
                     </button>
                 }
-                <div style={styles.listWrapper}>
+                <ListWrapper>
                     {authorList.map((author) => (
                         <AuthorCard author={author} key={author.id} />
                     ))}
-                </div>
+                </ListWrapper>
             </>
         )
-    }
-}
-
-const styles = {
-    listWrapper: {
-        display: "flex",
-        flexWrap: "wrap",
     }
 }
